@@ -14,5 +14,5 @@ module.exports.ping = async event => {
   };*/
 
   // Use this code if you don't use the http event with the LAMBDA-PROXY integration
-  return { message: 'pong', event };
+  return { message: 'pong' };
 };

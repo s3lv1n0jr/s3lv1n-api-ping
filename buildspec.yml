@@ -1,0 +1,17 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.8
+    commands:
+      - npm i -g serverless
+  pre_build:
+    commands:
+  build:
+    commands:
+      - echo Deploy started on `date`
+      - serverless deploy --verbose
+  post_build:
+    commands:
+      - echo Deploy completed on `date`

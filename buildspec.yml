@@ -5,6 +5,7 @@ phases:
     runtime-versions:
       python: 3.8
     commands:
+      - echo $CODEBUILD_WEBHOOK_HEAD_REF
       - npm i -g serverless
   pre_build:
     commands:

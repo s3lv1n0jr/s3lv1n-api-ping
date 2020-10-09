@@ -11,8 +11,15 @@ phases:
     commands:
   build:
     commands:
+      - STAGE=dev
+      - |
+        if [ "refs/heads/main" = $CODEBUILD_WEBHOOK_HEAD_REF ]; then
+          STAGE=prod
+        fi
+      - echo Stage $STAGE
       - echo Deploy started on `date`
-      - serverless deploy --verbose
+      - serverless deploy --stage $STAGE --verbose
   post_build:
     commands:
       - echo Deploy completed on `date`
+      
